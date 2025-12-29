@@ -41,6 +41,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
                 
                 if (username != null && SecurityContextHolder.getContext().getAuthentication() == null) {
                     if (jwtUtil.validateToken(token, username)) {
+                        // Extract role from token - In production, validate against database for additional security
                         String role = jwtUtil.extractClaim(token, claims -> claims.get("role", String.class));
                         
                         UsernamePasswordAuthenticationToken authToken = new UsernamePasswordAuthenticationToken(

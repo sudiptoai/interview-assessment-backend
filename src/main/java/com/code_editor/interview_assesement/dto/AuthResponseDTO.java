@@ -18,6 +18,7 @@ public class AuthResponseDTO {
     
     public AuthResponseDTO(String token, UserResponseDTO user) {
         this.token = token;
+        this.type = "Bearer";
         this.user = user;
     }
 }
