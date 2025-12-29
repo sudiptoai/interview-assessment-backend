@@ -28,5 +28,6 @@ public class UserRegistrationDTO {
     @Size(min = 6, message = "Password must be at least 6 characters")
     private String password;
     
+    @Builder.Default
     private UserRole role = UserRole.NORMAL_USER;
 }
